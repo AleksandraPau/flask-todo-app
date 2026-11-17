@@ -1,14 +1,12 @@
-# -*- coding: utf-8 -*-
-
-from flask import Flask
-from controllers import blueprints
 from configs import config
+from controllers import blueprints
 from extensions import db
+from flask import Flask
 
 
 def create_app(config_name=None):
     if config_name is None:
-        config_name = 'default'
+        config_name = "default"
 
     app = Flask(__name__)
     app.config.from_object(config[config_name])

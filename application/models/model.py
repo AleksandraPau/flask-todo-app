@@ -1,14 +1,14 @@
-# -*- coding: utf-8 -*-
-
-from application.extensions import db
 from datetime import datetime
 
-__all__ = ['Todo']
+from application.extensions import db
+
+__all__ = ["Todo"]
 
 
 class Todo(db.Model):
     """data model"""
-    __tablename__ = 'todo'
+
+    __tablename__ = "todo"
 
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(255), nullable=False)
@@ -16,7 +16,7 @@ class Todo(db.Model):
     status = db.Column(db.Boolean(), default=False)
 
     def __init__(self, *args, **kwargs):
-        super(Todo, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
     def __repr__(self):
         return "<Todo '%s'>" % self.title
