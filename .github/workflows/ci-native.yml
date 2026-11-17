@@ -39,4 +39,5 @@ jobs:
         run: |
           nohup python app.py > flask.log 2>&1 &
           sleep 5
-          curl -f -I http://127.0.0.1:5000/
+          cat flask.log
+          curl -f http://127.0.0.1:5000 || (cat flask.log && exit 1)
