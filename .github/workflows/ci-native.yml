@@ -33,11 +33,11 @@ jobs:
 
       - name: Initialize SQLite database
         run: |
-          python -c "from app import app, db; app.app_context().push(); db.create_all()" || true
+          python -c "from manage import app, db; app.app_context().push(); db.create_all()"
 
       - name: Smoke test Flask server
         run: |
-          nohup python app.py > flask.log 2>&1 &
+          nohup python manage.py runserver > flask.log 2>&1 &
           sleep 5
           cat flask.log
-          curl -f http://127.0.0.1:5000 || (cat flask.log && exit 1)
+          curl -f http://127.0.0.1:7345 || (cat flask.log && exit 1)
