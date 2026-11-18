@@ -19,7 +19,7 @@ class Todo(db.Model):
         super().__init__(*args, **kwargs)
 
     def __repr__(self):
-        return "<Todo '%s'>" % self.title
+        return "<Todo '%s'>".format(self.title)
 
     def store_to_db(self):
         """save to database"""
