@@ -1,6 +1,5 @@
 from configs import config
 from controllers import blueprints
-from extensions import db
 from flask import Flask
 
 
