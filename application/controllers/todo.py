@@ -8,7 +8,7 @@ todo_bp = flask.Blueprint("todo", __name__, template_folder="../templates")
 
 @todo_bp.route("/", methods=["GET", "POST"])
 def index():
-    todo = Todo.query.order_by("-id")
+    todo = Todo.query.order_by(Todo.id.desc())
     _form = request.form
 
     if request.method == "POST":
