@@ -39,7 +39,7 @@ jobs:
 
       - name: Smoke test Flask server
         run: |
-          PYTHONPATH=application nohup python manage.py runserver > flask.log 2>&1 &
+          PYTHONPATH=.:application nohup python manage.py runserver > flask.log 2>&1 &
           sleep 5
           cat flask.log
           curl -f http://127.0.0.1:7345 || (cat flask.log && exit 1)
