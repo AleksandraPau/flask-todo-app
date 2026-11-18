@@ -1,3 +1,3 @@
-import . from todo
+from . import todo
 
 blueprints = [todo.todo_bp]
