@@ -1,6 +1,6 @@
 from datetime import datetime
-
-from application.extensions import db
+from app import create_app
+from extensions import db
 
 __all__ = ["Todo"]
 
